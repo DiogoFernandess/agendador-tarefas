@@ -36,7 +36,7 @@ public class TarefasService {
                 tarefasRepository.save(entity));
     }
     public List<TarefasDTO> buscaTarefasAgendadasPorPeriodo(LocalDateTime datainicial, LocalDateTime datafinal){
-        return tarefasConverter.paraListaTarefasDTO(tarefasRepository.findByDataEvetoBetween(datainicial, datafinal));
+        return tarefasConverter.paraListaTarefasDTO(tarefasRepository.findByDataEvetoBetweenAndStatusNotificacaoEnum(datainicial, datafinal, StatusNotificacaoEnum.PENDENTE));
     }
 
 
